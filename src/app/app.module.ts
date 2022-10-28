@@ -7,7 +7,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
+import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
 import { SQLitePorter } from '@awesome-cordova-plugins/sqlite-porter/ngx';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterPipe } from './Pipes/filter.pipe';

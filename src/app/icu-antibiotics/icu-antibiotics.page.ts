@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
-import { SQLitePorter } from '@awesome-cordova-plugins/sqlite-porter/ngx';
-import { Router, NavigationExtras } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { Router, } from '@angular/router';
 
 @Component({
   selector: 'app-icu-antibiotics',
@@ -51,11 +49,9 @@ export class IcuAntibioticsPage implements OnInit {
         break;
       }
       case 1: {
-        //this.router.navigate(['/antibacterials']);
         break;
       }
       case 2: {
-        //this.router.navigate(['/enterobacterales']);
         break;
       }
       case 3: {

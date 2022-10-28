@@ -103,7 +103,7 @@ INSERT INTO `medicines` VALUES
 ('M007', 'DICLOXACILLIN', 6, '0.125–0.5 g every 6 hours', 'N/A', 'N/A', '3.125–6.25 mg/kg every 6 hours', 'N/A', '0.125–0.5 g orally every 6 hours'),
 ('M008', 'AMPICILLIN', 7, 'N/A', '0.5–2.0 g IV every 4–6 hours', '2 g IV every 4 hours', 'N/A', '25–50 mg/kg IV every 6 hours', '0.5–2.0 g IV every 12–24 hours'),
 ('M009', 'AMOXICILLIN', 8, '0.25–0.5 g every 8 hours or 0.875 g every 12 hours', 'N/A', 'N/A', '12.5–25 mg/kg every 12 hours or 7–13 mg/kg every 8 hours', 'N/A', '0.25–0.5 g orally every 24 hours'),
-('M010', 'AMOX_CLAV', 9, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
+('M010', 'AMOX_CLAV', 9, '0.25–0.5 g every 8 hours or 0.875 g every 12 hours', 'N/A', 'N/A', 'If > 40 kg: Adult dose', 'N/A', '0.25–0.5 g orally every 24 hours'),     -- Amoxicillin/clavulanate
 ('M011', 'AMP_SULB', 10, 'N/A', '1.5–3.0 g IV every 6 hours', '3 g IV every 6 hours', 'N/A', '25–50 mg/kg IV every 6 hours', '1.5–3.0 g IV every 24 hours'), --Ampicillin/subalctam
 ('M012', 'PIP_TAZO', 11, 'N/A', '3.375 g IV every 6 hours', '3.375 g IV infused over 4 hours every 8 hours or 4.5 g IV every 6 hours', 'N/A', '80 mg/kg IV every 8 hours', '2.25 g IV every 8 hours to 4.5 g IV every 12 hours'), -- Piperacillin/tazobactam
 ('M013', 'DORIPENEM', 12, 'N/A', '0.5 g IV every 8 hours', '0.5 g IV every 8 hours', 'N/A', 'N/A', '0.25 g IV every 24 hours'),
@@ -111,7 +111,7 @@ INSERT INTO `medicines` VALUES
 ('M015', 'IMIPENEM', 14, 'N/A', '0.5–1.0 g IV every 6 hours', '1 g IV every 6 hours', 'N/A', 'For infants 4 weeks to 3 months: 25 mg/kg IV every 6 hours. ' || char(10) || 'For children >3 months: 15–25 mg/kg IV every 6 hours', '0.125–0.25 g IV every 12 hours (may increase risk of seizures)'),
 ('M016', 'MEROPENEM', 15, 'N/A', '1 g IV every 8 hours', '2 g IV every 8 hours', 'N/A', '20–40 mg/kg IV every 8 hours', '0.5 g IV every 24 hours'),
 ('M017', 'MERO_VABOR', 16, 'N/A', '4 g IV every 8 hours', '4 g IV every 8 hours', 'N/A', 'N/A', '1g IV every 12 hours'), -- Meropenem/vaborbactam
-('M018', 'AZREONAM', 17, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
+('M018', 'AZTREONAM', 17, 'N/A', '1–2 g IV every 6–12 hours', '2 g IV every 6 hours', 'N/A', '30–40 mg/kg IV every 6–8 hours', '0.5 g IV every 8 hours'),
 ('M019', 'CIPROFLOXACILIN', 18, '0.5–0.75 g every 12 hours', '0.2–0.4 g IV every 8–12 hours', '0.4 g IV every 8 hours', '10–15 mg/kg IV every 12 hours (in select circumstances)', '10–15 mg/kg IV every 12 hours (in select circumstances)', '0.5–0.75 g orally every 24 hours or 0.2–0.4 g IV every 24 hours'),
 ('M020', 'DELAFLOXACIN', 19, '450 mg every 12 hours', '300 mg IV every 12 hours', '300 mg IV every 12 hours', 'N/A', 'N/A', 'N/A'),
 ('M021', 'OFLOXACIN', 20, '0.2–0.4 g every 12 hours', '0.4 g IV every 12 hours', '0.2–0.4 g IV every 12 hours', 'N/A', 'N/A', '0.1–0.2 g orally or IV every 24 hours'),
@@ -122,7 +122,7 @@ INSERT INTO `medicines` VALUES
 ('M026', 'GEMIFLOXACIN', 25, '320 mg every 24 hours', 'N/A', 'N/A', 'N/A', 'N/A', '160 mg orally every 24 hours'),
 ('M027', 'GATIFLOXACIN', 26, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
 ('M028', 'CEFAZOLIN', 27, 'N/A', '1–2 g IV every 8 hours', '2 g IV every 8 hours', 'N/A', '16.6–33.3 mg/kg IV every 8 hours', '1–2 g IV every 24–48 hours'),
-('M029', 'CAFOETAN', 28, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
+('M029', 'CEFOTETAN', 28, 'N/A', '1–3 g IV every 12 hours', '2–3 g IV every 12 hours', 'N/A', '20–40 mg/kg IV every 12 hours', '1–3 g IV every 48 hours'),
 ('M030', 'CEFOXITIN', 29, 'N/A', '1 g IV every 8 hours to 2 g IV every 4 hours', '2 g IV every 4 hours or 3 g IV every 6 hours', 'N/A', '27–33 mg/kg IV every 8 hours or, for severe infections, 25–40 mg/kg every 6 hours', '0.5–1.0 g IV every 24–48 hours'),
 ('M031', 'CEFUROXIME', 30, '0.125–0.5 g every 12 hours', '0.75–1.5 g IV every 6–8 hours', '1.5 g IV every 6 hours', '10–15 mg/kg suspension every 12 hours' || char(10) || 'For older children: 125–250-mg tablets every 12 hours',  '25–50 mg/kg IV every 8 hours', '0.25–0.5 g orally every 24 hours or 0.75 g IV every 24 hours'),
 ('M032', 'CEFOTAXIME', 31, 'N/A', '1 g every 12 hours to 2 g IV every 4 hours', '2 g IV every 4 hours', 'N/A', '8.3–33.3 mg/kg IV every 4 hours or 16.6–66.6 mg/kg every 6 hours', '1–2 g IV every 24 hours'),
@@ -147,11 +147,11 @@ INSERT INTO `medicines` VALUES
 ('M051', 'TOBRAMYCIN', 50, 'N/A', '5–7 mg/kg IV once/day or 1.7 mg/kg IV every 8 hours', '5–7 mg/kg IV once/day or 1.7 mg/kg IV every 8 hours', 'N/A', '1–2.5 mg/kg IV every 8 hours', '0.34–0.51 mg/kg IV every 24–48 hours'),
 ('M052', 'AMIKACIN', 51, 'N/A', '15 mg/kg IV once/day or 7.5 mg/kg every 12 hours', '15 mg/kg IV once/day or 7.5 mg/kg IV every 12 hours', 'N/A', '5–7.5 mg/kg IV every 12 hours', '1.5–2.5 mg/kg IV every 24–48 hours'),
 ('M053', 'CHLORAMPHENICOL', 52, '0.25–1 g every 6 hours', '0.25–1.0 g IV every 6 hours', '1 g IV every 6 hours', 'N/A', '12.5–18.75 mg/kg IV every 6 hours', '0.25–1.0 g IV every 6 hours'),
-('M054', 'CLYNDAMYCIN', 53, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
+('M054', 'CLINDAMYCIN', 53, '0.15–0.45 g every 6 hours', '0.6 g IV every 6 hours to 0.9 IV g every 8 hours', '0.9 g IV every 8 hours', '2.6–6.6 mg/kg every 8 hours or 2–5 mg/kg every 6 hours', '6.6–13.2 mg/kg IV every 8 hours or 5–10 mg/kg IV every 6 hours', '0.15–0.45 g orally every 6 hours or 0.6–0.9 g IV every 6–8 hours'),
 ('M055', 'ERYTHROMYCIN', 54, '0.25–0.5 g every 6 hours', 'N/A', 'N/A', '10–16.6 mg/kg every 8 hours or 7.5–12.5 mg/kg every 6 hours', 'N/A', '0.25 g orally every 6 hours'),
 ('M056', 'AZITHROMYCIN', 55, '0.5 g on day 1, then 0.25 g every 24 hours for 4 days', '0.5 g IV every 24 hours', '0.5 g IV every 24 hours', '—', 'N/A', '0.5 g orally on day 1, then 0.25 g orally every 24 hours for 4 days or 0.5 g IV every 24 hours'),
 ('M057', 'CLARITHROMYCIN', 56, '0.25–0.5 g every 12 hours' || char(10) || 'Extended-release: 1 g every 24 hours', 'N/A', 'N/A', '7.5 mg/kg every 12 hours', 'N/A', '0.25–0.5 g orally every 24 hours'),
-('M058', 'TELITHROMICYIN', 57, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
+('M058', 'TELITHROMYCIN', 57, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
 ('M059', 'DOXYCYCLINE', 58, '0.1 g every 12 hours', '0.1 g IV every 12 hours', '0.1 mg IV every 12 hours', 'Age > 8 years: 2–4 mg/kg every 24 hours or 1–2 mg/kg every 12 hours', 'Age > 8 years: 2–4 mg/kg IV every 24 hours or 1–2 mg/kg IV every 12 hours', '0.1 g IV or orally every 12 hours'),
 ('M060', 'MINOCYCLINE', 59, '0.1 g every 12 hours', '0.1 g IV every 12 hours', '0.1 g IV every 12 hours', 'N/A', 'N/A', '0.1 g IV or orally every 12 hours'),
 ('M061', 'TETRACYCLINE', 60, '0.25–0.5 g every 6 hours', 'N/A', 'N/A', 'Age > 8 years: 6.25–12.5 mg/kg every 6 hours', 'N/A', 'Doxycycline used instead'),

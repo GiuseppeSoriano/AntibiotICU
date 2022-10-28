@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
-import { SQLitePorter } from '@awesome-cordova-plugins/sqlite-porter/ngx';
 import { Router, NavigationExtras } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-bacterials',
@@ -13,7 +11,7 @@ export class BacterialsPage implements OnInit {
   Database: SQLiteObject
   Bacterials = [];
   open_var = [];
-  constructor(private sqlite: SQLite, private router:Router, private httpClient: HttpClient, private sqlitePorter: SQLitePorter) { 
+  constructor(private sqlite: SQLite, private router:Router) { 
     this.sqlite.create({name: 'myapp.db', location: 'default'}).then((db: SQLiteObject) => {
       this.Database = db;
       this.fill_bacterials();

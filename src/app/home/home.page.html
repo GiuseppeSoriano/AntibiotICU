@@ -23,6 +23,8 @@
       </ion-grid>
 
     </div>  
+
+    <div (click)="fun_showBibliography(true)">BIBLIOGRAPHY</div>
   </div>
 
   <ion-modal [isOpen]="openPopup" (didDismiss)="openPopup = false">
@@ -31,6 +33,19 @@
         <div class="popup-div">
           <img src="assets/imgs/close.png" slot="end" (click)="openPopup = false" class="close-btn">
           <img src="../../assets/imgs/ComingSoon.jpg">
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal [isOpen]="showBibliography" (didDismiss)="showBibliography = false">
+    <ng-template>
+      <ion-content>
+        <div class="popup-div">
+          <img src="assets/imgs/close.png" slot="end" (click)="showBibliography = false" class="close-btn">
+          <h3>Bibliography</h3>
+          <p><a href="bibliography/Sanford.pdf">Sanford v2.pdf</a></p>          
+          <p><a href="https://www.msdmanuals.com/professional/multimedia/table/usual-dosages-of-commonly-prescribed-antibioticsa">Table Dosage</a></p>          
         </div>
       </ion-content>
     </ng-template>

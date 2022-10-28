@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { UseExistingWebDriver } from 'protractor/built/driverProviders';
 
 @Pipe({
   name: 'filter'
@@ -11,13 +10,15 @@ export class FilterPipe implements PipeTransform {
       return value;
     }
     filterString = filterString.toUpperCase();
-    const Antibacterials = [];
+    console.log(filterString);
+    const Items = [];
     for(const item of value){
-      if(item['Name'].startsWith(filterString)){
-        Antibacterials.push(item);
+      let name = item['Name'].toUpperCase();
+      if(name.startsWith(filterString)){
+        Items.push(item);
       }
     }
-    return Antibacterials;
+    return Items;
   }
 
 }

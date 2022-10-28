@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
 import { SQLitePorter } from '@awesome-cordova-plugins/sqlite-porter/ngx';
-import { Router, NavigationExtras } from '@angular/router';
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -16,12 +16,17 @@ export class HomePage {
   bacterials = [];
   selected_bacterial: null;
   openPopup = false;
+  showBibliography = false;
   constructor(private sqlite: SQLite, private router:Router, private httpClient: HttpClient, private sqlitePorter: SQLitePorter) {
     this.init_db();
   }
 
   async soonAvailable(isOpen: boolean){
     this.openPopup = isOpen;
+  }
+  
+  async fun_showBibliography(isOpen: boolean){
+    this.showBibliography = isOpen;
   }
 
   ngOnInit() {

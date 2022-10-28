@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
-import { SQLitePorter } from '@awesome-cordova-plugins/sqlite-porter/ngx';
-import { Router, NavigationExtras } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -23,9 +21,8 @@ export class DosagePage implements OnInit {
     Renal: ''
   };
   Page = 0;
-  open_var = [];
-
-  constructor(private sqlite: SQLite, private router:Router, private httpClient: HttpClient, private sqlitePorter: SQLitePorter) { 
+  
+  constructor(private sqlite: SQLite, private router:Router) { 
     
     const navigation = this.router.getCurrentNavigation();
     const state = navigation.extras.state as {
