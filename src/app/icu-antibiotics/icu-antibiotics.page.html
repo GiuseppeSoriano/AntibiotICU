@@ -1,0 +1,28 @@
+<ion-content [fullscreen]="true">
+
+  <div class="main_content_div">
+
+    <div class="user_div">
+      <div class="first_div">
+        <ion-label class="title">ICU Antibiotics</ion-label>
+        <img src="assets/imgs/home.png" slot="end" (click)="goHome()">
+      </div>
+    </div>
+
+    <div class="content_div">      
+      <ion-label class="select_lbl">Select your activity</ion-label>
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="6" (click)="goToActivity($event, item)" *ngFor="let item of activities"  class="{{item.classe}}">
+            <div class="col_div">
+              <h1>{{item.name}}</h1>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </div>  
+  </div>
+
+</ion-content>

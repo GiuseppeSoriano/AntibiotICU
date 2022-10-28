@@ -1,0 +1,45 @@
+<ion-content>
+
+  <div class="main_content_div">
+
+    <div class="user_div">
+      <div class="first_div">
+        <ion-label class="title">ANTIBIOTICS</ion-label>
+        <img src="assets/imgs/back.png" slot="end" (click)="goBack()">
+      </div>
+    </div>
+
+    <div class="content_div1">      
+      <ion-label class="select_lbl">{{Enterobacteral.Name}}</ion-label>
+    </div>
+
+    <div class="content_div2">
+      <ion-grid fixed>
+
+        <ion-row *ngFor="let item of Antibiotics_simple">
+          <ion-col>
+            <div class="col_div">
+              <h3>{{item.Name}}</h3>
+              <br>
+              <p>{{item.Dosage}}</p>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let item of Antibiotics_double">
+          <ion-col>
+            <div class="col_div">
+              <h3>{{item.Name1}}</h3> 
+              <p>{{item.Dosage1}}</p>
+              <h1>+</h1> 
+              <h3>{{item.Name2}}</h3>
+              <p>{{item.Dosage1}}</p>
+            </div>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </div>  
+
+  </div>
+
+</ion-content>

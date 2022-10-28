@@ -1,0 +1,59 @@
+<ion-content>
+
+  <div class="main_content_div">
+
+    <div class="user_div">
+      <div class="first_div">
+        <ion-label class="title">DOSAGE</ion-label>
+        <img src="assets/imgs/back.png" slot="end" (click)="goBack()">
+      </div>
+    </div>
+
+    <div class="content_div1">      
+      <ion-label class="select_lbl">{{Antibacterial.Name}}</ion-label>
+    </div>
+
+    <div class="content_div2">
+      <ion-grid fixed>
+
+        <ion-row>
+          <ion-col>
+            <div class="col_div adult_dosage">
+              <h3>ADULT DOSAGE</h3>
+              <br><h4>ORAL</h4>
+              <p>{{ Antibacterial.A_Oral }}</p> 
+              <br><h4>PARENTERAL</h4>
+              <p>{{ Antibacterial.A_Parenteral }}</p>
+              <br><h4>SERIOUS INFECTIONS</h4>
+              <p>{{ Antibacterial.A_Serious }}</p>
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <div class="col_div pediatric_dosage">
+              <h3>PEDIATRIC DOSAGE</h3>
+              <br><h4>ORAL</h4>
+              <p>{{ Antibacterial.P_Oral }}</p>
+              <br><h4>PARENTERAL</h4>
+              <p>{{ Antibacterial.P_Parenteral }}</p>
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <div class="col_div renal_dosage">
+              <h3>DOSAGE IN RENAL FAILURE</h3>
+              <br><p>{{ Antibacterial.Renal }}</p>
+            </div>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </div>  
+
+  </div>
+
+</ion-content>

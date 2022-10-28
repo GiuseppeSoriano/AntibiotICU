@@ -1,0 +1,163 @@
+ion-content{
+    --background: linear-gradient( to right, #243949, #517fa4);
+}
+
+.main_content_div{
+  width: 100%;
+
+  .menu_btn{
+    position: relative;
+    top: 40px;
+    left: 10px;
+  }
+
+  ion-label{
+    display: block;
+    color: #243949;
+    text-align: center;
+  }
+
+  .user_div{
+    padding-left: 20px;
+    width: 100%;
+    height: 190px;
+    background: linear-gradient( to right, #243949, #517fa4);
+    position: fixed;
+    z-index: 90;
+    top: 0;
+    display: flex;
+    padding-top: 40px;
+    justify-content: space-between;
+
+    .first_div{
+      // padding-top: 35px;
+      .title{
+        font-size: 24px;
+        color: white;
+        font-weight: 600;
+        display:inline-block;
+      }
+      img{
+        position: fixed;
+        z-index: 90;
+        top: 34px;
+        right: 25px;
+        display: inline-block;
+        height: 40px;
+      }
+    }
+  }
+
+  .content_div1{
+    position: fixed;
+    z-index: 100;
+    top: 110px;
+    // margin-top: 110px;
+    background: white;
+    width: 100%;
+    height: 80px;
+    border-top-right-radius: 75px;
+    margin-bottom: 0px;
+    padding-top: 30px;
+
+    .select_lbl{
+      font-weight: 600;
+      font-size: 18px;
+      padding-left: 5px;
+      margin-top: 10px;
+    }
+  }
+
+  .content_div2{
+    margin-top: 190px;
+    background: white;
+    width: 100%;
+    height: 100%;
+    border-bottom-right-radius: 75px;
+    // margin-top: -90px;
+    padding-top: 2px;
+    padding-bottom: 60px;
+
+    ion-grid{
+      padding: 0px;
+    }
+
+    .col_div{
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        justify-content: left;
+        text-align: left;
+        height: fit-content;
+        padding: 10px;
+        box-shadow: 0px 3px 6px rgba(0,0,0,0.2);
+        border-radius: 5px;
+        margin-top: 5px;
+        color: black;
+        h3{
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+        }
+    }
+
+    .adult_dosage{
+        background: linear-gradient( to right,  #bfff76,  #CEF7A0);
+    }
+    
+    .pediatric_dosage{
+        background: linear-gradient( to right,  #60cdff,   #87d9ff);
+    }
+    
+    .renal_dosage{
+        background: linear-gradient( to right,  #FC9F5B,   #fdb17a);
+    }
+
+  }
+}
+
+.animated{
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes bounceInUp{
+  0%{
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+  }
+  60%{
+    opacity: 1;
+    -webkit-transform: translateY(-30px);
+  }
+  80%{
+    -webkit-transform: translateY(10px);
+  }
+  100%{
+    -webkit-transform: translateY(0px);
+  }
+}
+
+.bounceInUp{
+  -webkit-animation-name: bounceInUp;
+  animation-name: bounceInUp;
+}
+
+@keyframes bounceInUp{
+  0%{
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+  }
+  60%{
+    opacity: 1;
+    -webkit-transform: translateY(-30px);
+  }
+  80%{
+    -webkit-transform: translateY(10px);
+  }
+  100%{
+    -webkit-transform: translateY(0px);
+  }
+}
