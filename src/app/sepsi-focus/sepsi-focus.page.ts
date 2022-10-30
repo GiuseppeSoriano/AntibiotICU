@@ -3,49 +3,47 @@ import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
 import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
-  selector: 'app-enterobacterales',
-  templateUrl: './enterobacterales.page.html',
-  styleUrls: ['./enterobacterales.page.scss'],
+  selector: 'app-sepsi-focus',
+  templateUrl: './sepsi-focus.page.html',
+  styleUrls: ['./sepsi-focus.page.scss'],
 })
-export class EnterobacteralesPage implements OnInit {
-
+export class SepsiFocusPage implements OnInit {
   Database: SQLiteObject
-  Enterobacterales = [];
-  open_var = [];
+  Focus = [];
   constructor(private sqlite: SQLite, private router:Router) { 
     this.sqlite.create({name: 'myapp.db', location: 'default'}).then((db: SQLiteObject) => {
       this.Database = db;
-      this.fill_enterobacterales();
+      this.fill_focus();
     })
   }
 
   ngOnInit() {
   }
 
-  fill_enterobacterales(){
-    let sql = "SELECT * FROM ivac_enterobacterales ORDER BY Name";
+  fill_focus(){
+    let sql = "SELECT * FROM sepsi_focus ORDER BY Name";
 
     this.Database.executeSql(sql, [])
       .then((result) => {
         for (let i = 0; i < result.rows.length; i++) {
           let item = result.rows.item(i);
-          this.Enterobacterales.push(item);
+          this.Focus.push(item);
         }
       })
       .catch(e => console.log(e));
   }
-
-  viewAntibacterials(e, item){      // MOD
+  goRiskFactor(e, item){
     const navigationExtras: NavigationExtras = {
       state: {
         Codice: item.Codice,
         Name: item.Name
       }
     };
-    this.router.navigate(['/antibiotics'], navigationExtras);
+    this.router.navigate(['/sepsi-riskfactor'], navigationExtras);
   }
-  
+    
   goBack(){
     this.router.navigate(['/icu-antibiotics']);
   }
+
 }

@@ -39,6 +39,22 @@ const routes: Routes = [
     path: 'icu-antibiotics',
     loadChildren: () => import('./icu-antibiotics/icu-antibiotics.module').then( m => m.IcuAntibioticsPageModule)
   },
+  {
+    path: 'sepsi-focus',
+    loadChildren: () => import('./sepsi-focus/sepsi-focus.module').then( m => m.SepsiFocusPageModule)
+  },
+  {
+    path: 'sepsi-riskfactor',
+    loadChildren: () => import('./sepsi-riskfactor/sepsi-riskfactor.module').then( m => m.SepsiRiskfactorPageModule)
+  },
+  {
+    path: 'sepsi-pneumonia-settings',
+    loadChildren: () => import('./sepsi-pneumonia-settings/sepsi-pneumonia-settings.module').then( m => m.SepsiPneumoniaSettingsPageModule)
+  },
+  {
+    path: 'sepsi-antibiotics',
+    loadChildren: () => import('./sepsi-antibiotics/sepsi-antibiotics.module').then( m => m.SepsiAntibioticsPageModule)
+  },
   
 ];
 

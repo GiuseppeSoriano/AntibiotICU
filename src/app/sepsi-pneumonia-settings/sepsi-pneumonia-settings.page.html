@@ -4,20 +4,20 @@
 
     <div class="user_div">
       <div class="first_div">
-        <ion-label class="title">ENTEROBACTERALES</ion-label>
+        <ion-label class="title">E-SEPSIS</ion-label>
         <img src="assets/imgs/back.png" slot="end" (click)="goBack()">
       </div>
     </div>
 
     <div class="content_div1">      
-      <ion-label class="select_lbl">Select an enterobacteral</ion-label>
-      <input type="text" class="input-filter" [(ngModel)]="filteredString" placeholder="Search">
+      <ion-label class="select_lbl">Choose setting</ion-label>
     </div>
 
+    
     <div class="content_div2">
       <ion-grid fixed>
-        <ion-row *ngFor="let item of Enterobacterales | filter: filteredString">
-          <ion-col (click)="viewAntibacterials($event, item)" >
+        <ion-row *ngFor="let item of Settings">
+          <ion-col (click)="viewAntibiotics($event, item)" >
             <div class="col_div">
               <ion-label>{{item.Name}}</ion-label>
             </div>

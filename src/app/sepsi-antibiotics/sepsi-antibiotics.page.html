@@ -1,0 +1,64 @@
+<ion-content>
+
+  <div class="main_content_div">
+
+    <div class="user_div">
+      <div class="first_div">
+        <ion-label class="title">ANTIBIOTICS</ion-label>
+        <img src="assets/imgs/back.png" slot="end" (click)="goBack()">
+      </div>
+    </div>
+
+    <div class="content_div1">      
+      <ion-label class="select_lbl">{{Focus.Name}}</ion-label>
+      <div class="details">
+        <p *ngIf="RiskFactor == 0" class="select_lbl">No risk factor</p>
+        <p *ngIf="RiskFactor == 1" class="select_lbl">One or more risk factors</p>
+        <p *ngIf="Setting == 0 && Focus.Codice == 'FO001'" class="select_lbl">Setting: Community/Emergency room</p>
+        <p *ngIf="Setting == 1 && Focus.Codice == 'FO001'" class="select_lbl">Setting: Hospital/Nosocomial</p>
+        <p *ngIf="Setting == 2 && Focus.Codice == 'FO001'" class="select_lbl">Setting: ICU</p>
+        <p *ngIf="Setting == 0 && Focus.Codice == 'FO002'" class="select_lbl">Setting: Sepsis related Spontaneus bacterial peritonitis</p>
+        <p *ngIf="Setting == 1 && Focus.Codice == 'FO002'" class="select_lbl">Setting: Sepsis related  Secondary peritonitis</p>
+        <p *ngIf="Setting == 2 && Focus.Codice == 'FO002'" class="select_lbl">Setting: Sepsis related Tertiary peritonitis</p>
+      </div>
+
+    </div>
+
+    <div class="content_div2">
+      <ion-grid fixed>
+
+        <ion-row *ngFor="let item of Antibiotics">
+          <ion-col>
+            <div class="col_div">
+              <h3>{{item.AntibioticName1}}</h3> 
+              <p>{{item.AntibioticDosage1}}</p>
+              <div *ngIf="item.Antibiotic2 != null">
+                <h1>+</h1> 
+                <h3>{{item.AntibioticName2}}</h3>
+                <p>{{item.AntibioticDosage2}}</p>
+              </div>
+              <div *ngIf="item.Antibiotic3 != null">
+                <h1>+</h1> 
+                <h3>{{item.AntibioticName3}}</h3>
+                <p>{{item.AntibioticDosage3}}</p>
+              </div>
+              <div *ngIf="item.Antibiotic4 != null">
+                <h1>+</h1> 
+                <h3>{{item.AntibioticName4}}</h3>
+                <p>{{item.AntibioticDosage4}}</p>
+              </div>
+              <div *ngIf="item.Antibiotic5 != null">
+                <h1>+</h1> 
+                <h3>{{item.AntibioticName5}}</h3>
+                <p>{{item.AntibioticDosage5}}</p>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </div>  
+
+  </div>
+
+</ion-content>

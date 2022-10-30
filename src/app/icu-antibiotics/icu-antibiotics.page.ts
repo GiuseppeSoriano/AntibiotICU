@@ -26,8 +26,8 @@ export class IcuAntibioticsPage implements OnInit {
       },
       {
         code: 1,
-        name: 'SEPSI',
-        classe: 'opaco'
+        name: 'SEPSIS',
+        classe: 'visibile'
       },
       {
         code: 2,
@@ -49,6 +49,7 @@ export class IcuAntibioticsPage implements OnInit {
         break;
       }
       case 1: {
+        this.router.navigate(['/sepsi-focus']);
         break;
       }
       case 2: {

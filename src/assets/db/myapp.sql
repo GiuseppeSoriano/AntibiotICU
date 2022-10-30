@@ -42,6 +42,28 @@ DROP TABLE IF EXISTS `ivac_compatibile`;
 CREATE TABLE `ivac_compatibile` (
    `Entero` char(8) NOT NULL,
    `Treatment` char(8) NOT NULL);
+
+DROP TABLE IF EXISTS `sepsi_antibiotics`;
+CREATE TABLE `sepsi_antibiotics` (
+   `Codice` char(8) NOT NULL,
+   `Name` char(50) NOT NULL,
+   `Dosage` char(255));
+
+DROP TABLE IF EXISTS `sepsi_focus`;
+CREATE TABLE `sepsi_focus` (
+   `Codice` char(8) NOT NULL,
+   `Name` char(50) NOT NULL);
+
+DROP TABLE IF EXISTS `sepsi_compatibile`;
+CREATE TABLE `sepsi_compatibile` (
+   `Focus` char(8) NOT NULL,
+   `Risk` int NOT NULL,
+   `Setting` int NOT NULL,
+   `Antibiotic1` char(8),
+   `Antibiotic2` char(8),
+   `Antibiotic3` char(8),
+   `Antibiotic4` char(8),
+   `Antibiotic5` char(8));
   
 INSERT INTO `ivac_compatibile` VALUES
 ('IE001', 'IA001'),
@@ -91,6 +113,78 @@ INSERT INTO `ivac_antibiotics` VALUES
 ('IA011', 'Ceftolozano/tazobactam', 'loading dose 3g, maintenance dose 9g in continous infusion'),
 ('IA012', 'Cefepime', 'loading dose 2g, maintenance dose 6g in continous infusion'),
 ('IA013', 'Aztreonam', '2g q8h in continous infusion 8h');
+
+INSERT INTO `sepsi_antibiotics` VALUES
+('SA001', 'Ceftriaxone', '2 g i.v. q24h'),
+('SA002', 'Clarithomycina', '0,5 g i.v. q12 h '),
+('SA003', 'Azythromycin', '0,5 g i.v. q24h'),
+('SA004', 'Levofloxacin', '0,75 g i.v. q24h'),
+('SA005', 'Piperacilline-tazobactam', '4,5 g i.v. q6h'),
+('SA006', 'Linezolid', '600 mg i.v. q12h'),
+('SA007', 'Meropenem', '1 g i.v. q6h'),
+('SA008', 'Ceftazidime/avibactam', '2,5 g i.v. q8h'),
+('SA009', 'Fosfomycin', '4g i.v. q6h'),
+('SA010', 'Cefotaxime', '2 g i.v. q6h'),
+('SA011', 'Cefepime', '2 g i.v. q8h'),
+('SA012', 'Metronidazole', '500 mg i.v. q6h'),
+('SA013', 'Vancomycin', '25 mg/kg once, then 30 mg/Kg i.v. continous infusion'),
+('SA014', 'Ceftolozane/tazobactam', '1,5 g i.v. q8h'),
+('SA015', 'Caspofungin', '70 mg once, then 50 mg q24h (Or other echinocandins)'),
+('SA016', 'Ampicillin/Sulbactam', '(loading dose 3 g, maintenance dose 3 g q6h in continous infusion 6h)'),
+('SA017', 'Amikacin', '15 mg/Kg IV q24h'),
+('SA018', 'Ceftriaxone', '2 g i.v. q12h'),
+('SA019', 'Gentamycin', '5-7 mg/kg i.v q24h '),
+('SA020', 'Meropenem', '2 g q8h'),
+('SA021', 'Daptomycin', '8-10 mg/Kg i.v. q24h');
+
+INSERT INTO `sepsi_focus` VALUES
+('FO001', 'Pneumonia'),
+('FO002', 'Intra-abdominal infections'),
+('FO003', 'Urinary tract infections'),
+('FO004', 'Central nervous system'),
+('FO005', 'Skin and soft tissue');
+
+INSERT INTO `sepsi_compatibile` VALUES
+('FO001', 0, 0, 'SA001', 'SA002', null, null, null),
+('FO001', 0, 0, 'SA001', 'SA003', null, null, null),
+('FO001', 0, 0, 'SA004', null, null, null, null),
+('FO001', 1, 0, 'SA005', 'SA006', 'SA002', null, null),
+('FO001', 1, 0, 'SA005', 'SA006', 'SA003', null, null),
+('FO001', 0, 1, 'SA005', 'SA006', null, null, null),
+('FO001', 0, 1, 'SA007', 'SA009', null, null, null),
+('FO001', 0, 1, 'SA008', 'SA009', 'SA006', null, null),
+('FO001', 1, 1, 'SA005', 'SA006', null, null, null),
+('FO001', 1, 1, 'SA007', 'SA006', null, null, null),
+('FO001', 1, 1, 'SA008', 'SA009', 'SA006', null, null),
+('FO001', 0, 2, 'SA007', 'SA006', null, null, null),
+('FO001', 0, 2, 'SA008', 'SA009', 'SA006', null, null),
+('FO001', 1, 2, 'SA007', 'SA006', null, null, null),
+('FO001', 1, 2, 'SA008', 'SA009', 'SA006', null, null),
+('FO002', 0, 0, 'SA005', null, null, null, null),
+('FO002', 0, 0, 'SA010', null, null, null, null),
+('FO002', 1, 0, 'SA005', null, null, null, null),
+('FO002', 1, 0, 'SA010', null, null, null, null),
+('FO002', 0, 1, 'SA005', null, null, null, null),
+('FO002', 0, 1, 'SA011', 'SA012', null, null, null),
+('FO002', 1, 1, 'SA007', 'SA013', 'SA015', null, null),
+('FO002', 1, 1, 'SA014', 'SA012', 'SA013', 'SA015', null),
+('FO002', 1, 1, 'SA008', 'SA009', 'SA012', 'SA013', 'SA015'),
+('FO002', 0, 2, 'SA007', 'SA013', 'SA015', null, null),
+('FO002', 0, 2, 'SA008', 'SA009', 'SA012', 'SA013', 'SA015'),
+('FO002', 1, 2, 'SA007', 'SA013', 'SA015', null, null),
+('FO002', 1, 2, 'SA008', 'SA009', 'SA012', 'SA013', 'SA015'),
+('FO003', 0, 0, 'SA016', 'SA017', null, null, null),
+('FO003', 0, 0, 'SA005', 'SA017', null, null, null),
+('FO003', 1, 0, 'SA007', 'SA017', null, null, null),
+('FO003', 1, 0, 'SA008', 'SA009', null, null, null),
+('FO003', 1, 0, 'SA008', 'SA017', null, null, null),
+('FO004', 0, 0, 'SA018', 'SA006', 'SA016', 'SA019', null),
+('FO004', 1, 0, 'SA020', 'SA006', null, null, null),
+('FO004', 1, 0, 'SA008', 'SA009', 'SA006', null, null),
+('FO004', 1, 0, 'SA008', 'SA017', 'SA006', null, null),
+('FO005', 0, 0, 'SA021', 'SA005', null, null, null),
+('FO005', 1, 0, 'SA021', 'SA008', 'SA009', null, null),
+('FO005', 1, 0, 'SA021', 'SA008', 'SA017', null, null);
 
 -- BEGIN;
 INSERT INTO `medicines` VALUES
@@ -170,9 +264,9 @@ INSERT INTO `medicines` VALUES
 ('M074', 'RIF_COMB', 73, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
 ('M075', 'TMP_SMX', 74, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
 ('M076', 'NITROFURANTOIN', 75, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
-('M077', 'FOSFOMYCIN_IV', 76, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
+('M077', 'FOSFOMYCIN_IV', 76, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'), -- sopravvive
 ('M078', 'FOSFOMYCIN_PO', 77, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
-('M079', 'METRONIDAZOLE', 78, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
+('M079', 'METRONIDAZOLE', 78, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'), -- 500 mg *3 8h
 ('M080', 'QUINU_DALFO', 79, 'N/A', '7.5 mg/kg IV every 8–12 hours', '7.5 mg/kg IV every 8 hours', 'N/A', '7.5 mg/kg IV every 12 hours for complicated skin or skin structure infection or 7.5 mg/kg every 8 hours for serious infections', '7.5 mg/kg IV every 8–12 hours');   -- Quinupristin/dalfopristin
 -- COMMIT;
 
