@@ -188,8 +188,8 @@ INSERT INTO `sepsi_compatibile` VALUES
 
 -- BEGIN;
 INSERT INTO `medicines` VALUES
-('M001', 'PENICILLIN_G', 0, 'N/A', '1–4 million units IV every 4–6 hours', '4 million units IV every 4 hours', 'N/A', '6,250–100,000 units/kg IV every 6 hours or 4,166.6–66,666 units/kg IV every 4 hours', '0.5–2 million units IV every 4–6 hours (maximum total daily dose: 6 million units/day)'),
-('M002', 'PENICILLIN_VK', 1, '0.25–0.5 g every 6–12 hours', 'N/A', 'N/A', '6.25–12.5 mg/kg every 8 hours', 'N/A', 'N/A'),
+('M001', 'PENICILLIN G', 0, 'N/A', '1–4 million units IV every 4–6 hours', '4 million units IV every 4 hours', 'N/A', '6,250–100,000 units/kg IV every 6 hours or 4,166.6–66,666 units/kg IV every 4 hours', '0.5–2 million units IV every 4–6 hours (maximum total daily dose: 6 million units/day)'),
+('M002', 'PENICILLIN VK', 1, '0.25–0.5 g every 6–12 hours', 'N/A', 'N/A', '6.25–12.5 mg/kg every 8 hours', 'N/A', 'N/A'),
 ('M003', 'NAFCILLIN', 2, 'Rarely used', '1–2 g IV every 4 hours', '2 g IV every 4 hours', 'N/A', '12.5–25 mg/kg IV every 6 hours or 8.3–33.3 mg/kg every 4 hours', '1–2 g IV every 4 hours'),
 ('M004', 'OXACILLIN', 3, 'Rarely used', '1–2 g IV every 4 hours', '2 g IV every 4 hours', 'N/A', '12.5–25 mg/kg IV every 6 hours or 8.3–33.3 mg/kg every 4 hours', '1–2 g IV every 4 hours'),
 ('M005', 'CLOXACILLIN', 4, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
@@ -197,14 +197,14 @@ INSERT INTO `medicines` VALUES
 ('M007', 'DICLOXACILLIN', 6, '0.125–0.5 g every 6 hours', 'N/A', 'N/A', '3.125–6.25 mg/kg every 6 hours', 'N/A', '0.125–0.5 g orally every 6 hours'),
 ('M008', 'AMPICILLIN', 7, 'N/A', '0.5–2.0 g IV every 4–6 hours', '2 g IV every 4 hours', 'N/A', '25–50 mg/kg IV every 6 hours', '0.5–2.0 g IV every 12–24 hours'),
 ('M009', 'AMOXICILLIN', 8, '0.25–0.5 g every 8 hours or 0.875 g every 12 hours', 'N/A', 'N/A', '12.5–25 mg/kg every 12 hours or 7–13 mg/kg every 8 hours', 'N/A', '0.25–0.5 g orally every 24 hours'),
-('M010', 'AMOX_CLAV', 9, '0.25–0.5 g every 8 hours or 0.875 g every 12 hours', 'N/A', 'N/A', 'If > 40 kg: Adult dose', 'N/A', '0.25–0.5 g orally every 24 hours'),     -- Amoxicillin/clavulanate
-('M011', 'AMP_SULB', 10, 'N/A', '1.5–3.0 g IV every 6 hours', '3 g IV every 6 hours', 'N/A', '25–50 mg/kg IV every 6 hours', '1.5–3.0 g IV every 24 hours'), --Ampicillin/subalctam
-('M012', 'PIP_TAZO', 11, 'N/A', '3.375 g IV every 6 hours', '3.375 g IV infused over 4 hours every 8 hours or 4.5 g IV every 6 hours', 'N/A', '80 mg/kg IV every 8 hours', '2.25 g IV every 8 hours to 4.5 g IV every 12 hours'), -- Piperacillin/tazobactam
+('M010', 'AMOXICILLIN CLAVULANATE', 9, '0.25–0.5 g every 8 hours or 0.875 g every 12 hours', 'N/A', 'N/A', 'If > 40 kg: Adult dose', 'N/A', '0.25–0.5 g orally every 24 hours'),     -- Amoxicillin/clavulanate
+('M011', 'AMPICILLIN SULBACTAM', 10, 'N/A', '1.5–3.0 g IV every 6 hours', '3 g IV every 6 hours', 'N/A', '25–50 mg/kg IV every 6 hours', '1.5–3.0 g IV every 24 hours'), --Ampicillin/subalctam
+('M012', 'PIPERACILLIN TAZOBACTAM', 11, 'N/A', '3.375 g IV every 6 hours', '3.375 g IV infused over 4 hours every 8 hours or 4.5 g IV every 6 hours', 'N/A', '80 mg/kg IV every 8 hours', '2.25 g IV every 8 hours to 4.5 g IV every 12 hours'), -- Piperacillin/tazobactam
 ('M013', 'DORIPENEM', 12, 'N/A', '0.5 g IV every 8 hours', '0.5 g IV every 8 hours', 'N/A', 'N/A', '0.25 g IV every 24 hours'),
 ('M014', 'ERTAPENEM', 13, 'N/A', '1 g IV every 24 hours', '1 g IV every 24 hours', 'N/A', 'N/A', '0.5 g IV every 24 hours'),
 ('M015', 'IMIPENEM', 14, 'N/A', '0.5–1.0 g IV every 6 hours', '1 g IV every 6 hours', 'N/A', 'For infants 4 weeks to 3 months: 25 mg/kg IV every 6 hours. ' || char(10) || 'For children >3 months: 15–25 mg/kg IV every 6 hours', '0.125–0.25 g IV every 12 hours (may increase risk of seizures)'),
 ('M016', 'MEROPENEM', 15, 'N/A', '1 g IV every 8 hours', '2 g IV every 8 hours', 'N/A', '20–40 mg/kg IV every 8 hours', '0.5 g IV every 24 hours'),
-('M017', 'MERO_VABOR', 16, 'N/A', '4 g IV every 8 hours', '4 g IV every 8 hours', 'N/A', 'N/A', '1g IV every 12 hours'), -- Meropenem/vaborbactam
+('M017', 'MEROPENEM VABORBACTAM', 16, 'N/A', '4 g IV every 8 hours', '4 g IV every 8 hours', 'N/A', 'N/A', '1g IV every 12 hours'), -- Meropenem/vaborbactam
 ('M018', 'AZTREONAM', 17, 'N/A', '1–2 g IV every 6–12 hours', '2 g IV every 6 hours', 'N/A', '30–40 mg/kg IV every 6–8 hours', '0.5 g IV every 8 hours'),
 ('M019', 'CIPROFLOXACILIN', 18, '0.5–0.75 g every 12 hours', '0.2–0.4 g IV every 8–12 hours', '0.4 g IV every 8 hours', '10–15 mg/kg IV every 12 hours (in select circumstances)', '10–15 mg/kg IV every 12 hours (in select circumstances)', '0.5–0.75 g orally every 24 hours or 0.2–0.4 g IV every 24 hours'),
 ('M020', 'DELAFLOXACIN', 19, '450 mg every 12 hours', '300 mg IV every 12 hours', '300 mg IV every 12 hours', 'N/A', 'N/A', 'N/A'),
@@ -216,7 +216,7 @@ INSERT INTO `medicines` VALUES
 ('M026', 'GEMIFLOXACIN', 25, '320 mg every 24 hours', 'N/A', 'N/A', 'N/A', 'N/A', '160 mg orally every 24 hours'),
 ('M027', 'GATIFLOXACIN', 26, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
 ('M028', 'CEFAZOLIN', 27, 'N/A', '1–2 g IV every 8 hours', '2 g IV every 8 hours', 'N/A', '16.6–33.3 mg/kg IV every 8 hours', '1–2 g IV every 24–48 hours'),
-('M029', 'CEFOTETAN', 28, 'N/A', '1–3 g IV every 12 hours', '2–3 g IV every 12 hours', 'N/A', '20–40 mg/kg IV every 12 hours', '1–3 g IV every 48 hours'),
+('M029', 'CAFOETAN', 28, 'N/A', '1–3 g IV every 12 hours', '2–3 g IV every 12 hours', 'N/A', '20–40 mg/kg IV every 12 hours', '1–3 g IV every 48 hours'),
 ('M030', 'CEFOXITIN', 29, 'N/A', '1 g IV every 8 hours to 2 g IV every 4 hours', '2 g IV every 4 hours or 3 g IV every 6 hours', 'N/A', '27–33 mg/kg IV every 8 hours or, for severe infections, 25–40 mg/kg every 6 hours', '0.5–1.0 g IV every 24–48 hours'),
 ('M031', 'CEFUROXIME', 30, '0.125–0.5 g every 12 hours', '0.75–1.5 g IV every 6–8 hours', '1.5 g IV every 6 hours', '10–15 mg/kg suspension every 12 hours' || char(10) || 'For older children: 125–250-mg tablets every 12 hours',  '25–50 mg/kg IV every 8 hours', '0.25–0.5 g orally every 24 hours or 0.75 g IV every 24 hours'),
 ('M032', 'CEFOTAXIME', 31, 'N/A', '1 g every 12 hours to 2 g IV every 4 hours', '2 g IV every 4 hours', 'N/A', '8.3–33.3 mg/kg IV every 4 hours or 16.6–66.6 mg/kg every 6 hours', '1–2 g IV every 24 hours'),
@@ -224,14 +224,14 @@ INSERT INTO `medicines` VALUES
 ('M034', 'CEFTRIAXONE', 33, 'N/A', '1–2 g IV every 24 hours', '2 g IV every 24 hours', 'N/A', '50–75 mg/kg IV every 24 hours or 25–37.5 mg/kg every 12 hours', 'Same as adult dose'),
 ('M035', 'CEFTAZIDIME', 34, 'N/A', '1 g IV every 12 hours to 2 g every 8 hours', '2 g IV every 8 hours', 'N/A', '25–50 mg/kg IV every 8 hours', '0.5 g IV every 24–48 hours'),
 ('M036', 'CEFEPIME', 35, 'N/A', '1–2 g IV every 8–12 hours', '2 g IV every 8 hours', 'N/A', '50 mg/kg IV every 8–12 hours', '0.25–1 g IV every 24 hours'),
-('M037', 'CEFTAZ_AVIBAC', 36, 'N/A', '2.5 g IV every 8 hours', '2.5 g IV every 8 hours', 'N/A', 'N/A', '0.94 g IV every 24–48 hours'),  -- Ceftazidime/avibactam
+('M037', 'CEFTAZIDIME AVIBACTAM', 36, 'N/A', '2.5 g IV every 8 hours', '2.5 g IV every 8 hours', 'N/A', 'N/A', '0.94 g IV every 24–48 hours'),  -- Ceftazidime/avibactam
 ('M038', 'CEFTAROLINE', 37, 'N/A', '0.6 g IV every 12 hours', '0.6 g IV every 12 hours', 'N/A', 'N/A', '0.2 g IV every 12 hours'),
-('M039', 'CEFTOL_TAZO', 38, 'N/A', '1.5 g IV every 8 hours', '1.5 g IV every 8 hours', 'N/A', 'N/A', '0.75 g IV once, then 0.15 g IV every 8 hours'),  -- Ceftolozane/tazobactam
+('M039', 'CEFTOLOZANO TAZOBACTAM', 38, 'N/A', '1.5 g IV every 8 hours', '1.5 g IV every 8 hours', 'N/A', 'N/A', '0.75 g IV once, then 0.15 g IV every 8 hours'),  -- Ceftolozane/tazobactam
 ('M040', 'CEFADROXIL', 39, '0.5–1 g every 12 hours', 'N/A', 'N/A', '15 mg/kg every 12 hours', 'N/A', '0.5 g orally every 36 hours'),
 ('M041', 'CEPHALEXIN', 40, '0.25–0.5 g every 6 hours', 'N/A', 'N/A', '6.25–12.5 mg/kg every 6 hours or 8.0–16 mg/kg every 8 hours', 'N/A', '0.25–0.5 g orally every 24–48 hours'),
 ('M042', 'CEFACLOR', 41, '0.25–0.5 g every 8 hours', 'N/A', 'N/A', '10–20 mg/kg every 12 hours or 6.6–13.3 mg/kg every 8 hours', 'N/A', '0.5 g orally every 12 hours'),
 ('M043', 'CEFPROZIL', 42, '0.25 g every 12 hours or 0.5 g every 12–24 hours', 'N/A', 'N/A', '15 mg/kg every 12 hours for otitis media', 'N/A', '0.25 g orally every 12–24 hours'),
-('M044', 'CEFUROX_AXE', 43, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
+('M044', 'CEFUROXIME AXETIL', 43, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
 ('M045', 'CEFIXIME', 44, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
 ('M046', 'CEFTIBUTEN', 45, '0.4 g every 24 hours', 'N/A', 'N/A', '9 mg/kg once/day', 'N/A', '0.1 g orally every 24 hours'),
 ('M047', 'CEFPODOXIME', 46, '0.1–0.4 g every 12 hours', 'N/A', 'N/A', '5 mg/kg every 12 hours', 'N/A', '0.1–0.4 g orally every 24 hours'),
@@ -258,16 +258,16 @@ INSERT INTO `medicines` VALUES
 ('M068', 'DALBAVANCIN', 67, 'N/A', '1500 mg as a single dose or 1000 mg once, followed by a 500-mg dose 1 week later', '1500 mg as a single dose or 1000 mg once, followed by a 500-mg dose 1 week later', 'N/A', 'N/A', '1125 mg as a single dose or 750 mg once, followed by a 375-mg dose 1 week later'),
 ('M069', 'LINEZOLID', 68, '0.6 g every 12 hours', '0.6 g IV every 12 hours', '0.6 g IV every 12 hours', '10 mg/kg every 8 hours', '10 mg/kg IV every 8 hours', '0.6 g IV or orally every 12 hours'),
 ('M070', 'TEDIZOLID', 69, '200 mg every 24 hours', '200 mg IV every 24 hours', '200 mg IV every 24 hours', 'N/A', 'N/A', '200 mg orally or IV every 24 hours'),
-('M071', 'POLYMYXIN_B', 70, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
+('M071', 'POLYMYXIN B', 70, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
 ('M072', 'COLISTIN', 71, 'N/A', '2.5–5 mg/kg/day IV in 2–4 doses', '2.5–5 mg/kg/day IV in 2–4 doses[g]', 'N/A', 'N/A', '1.5 mg/kg every 36 hours'),   -- Colistin (polymyxin E)
-('M073', 'FUSIDIC_ACID', 72, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
-('M074', 'RIF_COMB', 73, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
-('M075', 'TMP_SMX', 74, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
+('M073', 'FUSIDIC ACID', 72, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
+-- ('M074', 'RIF_COMB', 73, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
+('M075', 'TRIMETHOPRIM SULFAMETHOXAZOLE', 74, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
 ('M076', 'NITROFURANTOIN', 75, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
-('M077', 'FOSFOMYCIN_IV', 76, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'), -- sopravvive
-('M078', 'FOSFOMYCIN_PO', 77, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
+('M077', 'FOSFOMYCIN IV', 76, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'), -- sopravvive
+('M078', 'FOSFOMYCIN PO', 77, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
 ('M079', 'METRONIDAZOLE', 78, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'), -- 500 mg *3 8h
-('M080', 'QUINU_DALFO', 79, 'N/A', '7.5 mg/kg IV every 8–12 hours', '7.5 mg/kg IV every 8 hours', 'N/A', '7.5 mg/kg IV every 12 hours for complicated skin or skin structure infection or 7.5 mg/kg every 8 hours for serious infections', '7.5 mg/kg IV every 8–12 hours');   -- Quinupristin/dalfopristin
+('M080', 'QUINUPRISTIN DALFOPRISTIN', 79, 'N/A', '7.5 mg/kg IV every 8–12 hours', '7.5 mg/kg IV every 8 hours', 'N/A', '7.5 mg/kg IV every 12 hours for complicated skin or skin structure infection or 7.5 mg/kg every 8 hours for serious infections', '7.5 mg/kg IV every 8–12 hours');   -- Quinupristin/dalfopristin
 -- COMMIT;
 
 -- BEGIN;

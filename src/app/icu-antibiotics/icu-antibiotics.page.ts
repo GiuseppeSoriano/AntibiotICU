@@ -10,6 +10,7 @@ import { Router, } from '@angular/router';
 export class IcuAntibioticsPage implements OnInit {
   Database: SQLiteObject;
   activities;
+  openPopup = false;
   
   constructor(private sqlite: SQLite, private router:Router) { 
     this.sqlite.create({name: 'myapp.db', location: 'default'}).then((db: SQLiteObject) => {
@@ -53,9 +54,11 @@ export class IcuAntibioticsPage implements OnInit {
         break;
       }
       case 2: {
+        this.openPopup = true;
         break;
       }
       case 3: {
+        this.openPopup = true;
         break;
       }
       default: break;
