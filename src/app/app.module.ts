@@ -12,10 +12,11 @@ import { SQLitePorter } from '@awesome-cordova-plugins/sqlite-porter/ngx';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterPipe } from './Pipes/filter.pipe';
 import { SplashScreen } from '@awesome-cordova-plugins/splash-screen/ngx';
-import { PdfViewerModule } from 'ng2-pdf-viewer'
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { HapFilterPipe } from './Pipes/hap-filter.pipe'
 
 @NgModule({
-  declarations: [AppComponent, FilterPipe],
+  declarations: [AppComponent, FilterPipe, HapFilterPipe],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, PdfViewerModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },SQLite, SQLitePorter, SplashScreen],
   bootstrap: [AppComponent],

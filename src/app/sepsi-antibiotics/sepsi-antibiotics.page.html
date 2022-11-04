@@ -13,7 +13,7 @@
       <ion-label class="select_lbl">{{Focus.Name}}</ion-label>
       <div class="details">
         <p *ngIf="RiskFactor == 0" class="select_lbl">No risk factor</p>
-        <p *ngIf="RiskFactor == 1" class="select_lbl">One or more risk factors</p>
+        <p *ngIf="RiskFactor > 0" class="select_lbl">One or more risk factors</p>
         <p *ngIf="Setting == 0 && Focus.Codice == 'FO001'" class="select_lbl">Setting: Community/Emergency room</p>
         <p *ngIf="Setting == 1 && Focus.Codice == 'FO001'" class="select_lbl">Setting: Hospital/Nosocomial</p>
         <p *ngIf="Setting == 2 && Focus.Codice == 'FO001'" class="select_lbl">Setting: ICU</p>

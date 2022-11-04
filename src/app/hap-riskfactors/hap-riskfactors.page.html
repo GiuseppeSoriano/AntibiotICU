@@ -1,0 +1,38 @@
+<ion-content>
+
+  <div class="main_content_div">
+
+    <div class="user_div">
+      <div class="first_div">
+        <ion-label class="title">HAP</ion-label>
+        <img src="assets/imgs/back.png" slot="end" (click)="goBack()">
+      </div>
+    </div>
+
+    <div class="content_div1">      
+      <ion-label class="select_lbl">Choose, if present, risk factor:</ion-label>
+    </div>
+
+    
+    <div class="content_div2">
+      <ion-grid fixed>
+        <ion-row *ngFor="let item of PossibleRiskFactors">
+          <ion-col (click)="manageRiskFactor($event, item)" class="{{item.classe}}">
+            <div class="col_div">
+              <ion-label>{{item.Name}}</ion-label>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col (click)="goNext()">
+            <div class="col_div button">
+              <ion-label>NEXT</ion-label>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>  
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,44 @@
+<ion-content>
+
+  <div class="main_content_div">
+
+    <div class="user_div">
+      <div class="first_div">
+        <ion-label class="title">ANTIBIOTICS</ion-label>
+        <img src="assets/imgs/back.png" slot="end" (click)="goBack()">
+      </div>
+    </div>
+
+    <div class="content_div1">      
+      <ion-label class="select_lbl">Empirical theraphy</ion-label>
+      <input type="text" class="input-filter" [(ngModel)]="filteredString" placeholder="Search">
+    </div>
+
+    <div class="content_div2">
+      <ion-grid fixed>
+
+        <ion-row *ngFor="let item of Antibiotics | hapFilter: filteredString">
+          <ion-col>
+            <div class="col_div">
+              <h3>{{item.AntibioticName1}}</h3> 
+              <p>{{item.AntibioticDosage1}}</p>
+              <div *ngIf="Risk_B > 0 || Risk_C > 0">
+                <h1>+</h1> 
+                <h3>{{item.AntibioticName2}}</h3>
+                <p>{{item.AntibioticDosage2}}</p>
+              </div>
+              <div *ngIf="Risk_A > 0">
+                <h1>+</h1> 
+                <h3>{{item.AntibioticName3}}</h3>
+                <p>{{item.AntibioticDosage3}}</p>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </div>  
+
+  </div>
+
+</ion-content>

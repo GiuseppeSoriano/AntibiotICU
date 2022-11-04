@@ -24,10 +24,6 @@ export class HomePage {
   async soonAvailable(isOpen: boolean){
     this.openPopup = isOpen;
   }
-  
-  async fun_showBibliography(isOpen: boolean){
-    this.showBibliography = isOpen;
-  }
 
   ngOnInit() {
     this.activities = [
@@ -74,6 +70,10 @@ export class HomePage {
       }
       default: break;
     }
+  }
+
+  go_Bibliography(){
+    this.router.navigate(['/bibliography']);
   }
 
   private init_db() {

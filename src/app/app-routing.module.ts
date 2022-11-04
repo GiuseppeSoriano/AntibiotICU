@@ -55,6 +55,18 @@ const routes: Routes = [
     path: 'sepsi-antibiotics',
     loadChildren: () => import('./sepsi-antibiotics/sepsi-antibiotics.module').then( m => m.SepsiAntibioticsPageModule)
   },
+  {
+    path: 'hap-riskfactors',
+    loadChildren: () => import('./hap-riskfactors/hap-riskfactors.module').then( m => m.HapRiskfactorsPageModule)
+  },
+  {
+    path: 'hap-antibiotics',
+    loadChildren: () => import('./hap-antibiotics/hap-antibiotics.module').then( m => m.HapAntibioticsPageModule)
+  },
+  {
+    path: 'bibliography',
+    loadChildren: () => import('./bibliography/bibliography.module').then( m => m.BibliographyPageModule)
+  },
   
 ];
 

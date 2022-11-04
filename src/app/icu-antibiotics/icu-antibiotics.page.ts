@@ -23,21 +23,25 @@ export class IcuAntibioticsPage implements OnInit {
       {
         code: 0,
         name: 'IVAC',
+        comment: 'enterobacterales',
         classe: 'visibile'
       },
       {
         code: 1,
         name: 'SEPSIS',
+        comment: 'empirical theraphy',
         classe: 'visibile'
       },
       {
         code: 2,
         name: 'HAP',
-        classe: 'opaco'
+        comment: 'empirical theraphy',
+        classe: 'visibile'
       },
       {
         code: 3,
         name: 'VAP',
+        comment: 'empirical theraphy',
         classe: 'opaco'
       }
     ]
@@ -54,7 +58,7 @@ export class IcuAntibioticsPage implements OnInit {
         break;
       }
       case 2: {
-        this.openPopup = true;
+        this.router.navigate(['/hap-riskfactors']);
         break;
       }
       case 3: {

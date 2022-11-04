@@ -65,6 +65,27 @@ CREATE TABLE `sepsi_compatibile` (
    `Antibiotic4` char(8),
    `Antibiotic5` char(8));
   
+DROP TABLE IF EXISTS `hap_antibiotics`;
+CREATE TABLE `hap_antibiotics` (
+   `Codice` char(8) NOT NULL,
+   `Name` char(50) NOT NULL,
+   `Dosage` char(255));
+
+DROP TABLE IF EXISTS `hap_compatibile1`;
+CREATE TABLE `hap_compatibile1` (
+   `Antibiotic1` char(8));
+
+DROP TABLE IF EXISTS `hap_compatibile2`;
+CREATE TABLE `hap_compatibile2` (
+   `Antibiotic1` char(8),
+   `Antibiotic2` char(8));
+
+DROP TABLE IF EXISTS `hap_compatibile3`;
+CREATE TABLE `hap_compatibile3` (
+   `Antibiotic1` char(8),
+   `Antibiotic2` char(8),
+   `Antibiotic3` char(8));
+
 INSERT INTO `ivac_compatibile` VALUES
 ('IE001', 'IA001'),
 ('IE001', 'IA002'),
@@ -185,6 +206,157 @@ INSERT INTO `sepsi_compatibile` VALUES
 ('FO005', 0, 0, 'SA021', 'SA005', null, null, null),
 ('FO005', 1, 0, 'SA021', 'SA008', 'SA009', null, null),
 ('FO005', 1, 0, 'SA021', 'SA008', 'SA017', null, null);
+
+INSERT INTO `hap_antibiotics` VALUES
+('HA001', 'Piperacillin-tazobactam', '4.5 g IV q6h'),
+('HA002', 'Cefepime', '2 g IV q8h'),
+('HA003', 'Levofloxacin', '750 mg IV daily'),
+('HA004', 'Imipenem', '500 mg IV q6h'),
+('HA005', 'Meropenem', '1 g IV q8h'),
+('HA006', 'Ceftazidime', '2 g IV q8h'),
+('HA007', 'Aztreonam', '2 g IV q8h'),
+('HA008', 'Vancomycin', '15 mg/kg IV q8–12h with goal to target 15–20 mg/mL trough level (consider a loading dose of 25–30 mg/kg × 1 for severe illness)'),
+('HA009', 'Linezolid', '600 mg IV q12h'),
+('HA010', 'Ciprofloxacin', '400 mg IV q8h'),
+('HA011', 'Amikacin', '15–20 mg/kg IV daily'),
+('HA012', 'Gentamicin', '5–7 mg/kg IV daily'),
+('HA013', 'Tobramycin', '5–7 mg/kg IV daily'),
+('HA014', 'Aztreonam', '2 g IV q8h');
+
+INSERT INTO `hap_compatibile1` VALUES
+('HA001'),
+('HA002'),
+('HA003'),
+('HA004'),
+('HA005');
+
+INSERT INTO `hap_compatibile2` VALUES
+('HA001', 'HA008'),
+('HA001', 'HA009'),
+('HA002', 'HA008'),
+('HA002', 'HA009'),
+('HA006', 'HA008'),
+('HA006', 'HA009'),
+('HA003', 'HA008'),
+('HA003', 'HA009'),
+('HA010', 'HA008'),
+('HA010', 'HA009'),
+('HA004', 'HA008'),
+('HA004', 'HA009'),
+('HA005', 'HA008'),
+('HA005', 'HA009'),
+('HA014', 'HA008'),
+('HA014', 'HA009');
+
+INSERT INTO `hap_compatibile3` VALUES
+('HA001', 'HA002', 'HA008'),
+('HA001', 'HA006', 'HA008'),
+('HA001', 'HA003', 'HA008'),
+('HA001', 'HA010', 'HA008'),
+('HA001', 'HA004', 'HA008'),
+('HA001', 'HA005', 'HA008'),
+('HA001', 'HA014', 'HA008'),
+('HA001', 'HA011', 'HA008'),
+('HA001', 'HA012', 'HA008'),
+('HA001', 'HA013', 'HA008'),
+('HA002', 'HA003', 'HA008'),
+('HA002', 'HA010', 'HA008'),
+('HA002', 'HA004', 'HA008'),
+('HA002', 'HA005', 'HA008'),
+('HA002', 'HA014', 'HA008'),
+('HA002', 'HA011', 'HA008'),
+('HA002', 'HA012', 'HA008'),
+('HA002', 'HA013', 'HA008'),
+('HA006', 'HA003', 'HA008'),
+('HA006', 'HA010', 'HA008'),
+('HA006', 'HA004', 'HA008'),
+('HA006', 'HA005', 'HA008'),
+('HA006', 'HA014', 'HA008'),
+('HA006', 'HA011', 'HA008'),
+('HA006', 'HA012', 'HA008'),
+('HA006', 'HA013', 'HA008'),
+('HA003', 'HA010', 'HA008'),
+('HA003', 'HA004', 'HA008'),
+('HA003', 'HA005', 'HA008'),
+('HA003', 'HA014', 'HA008'),
+('HA003', 'HA011', 'HA008'),
+('HA003', 'HA012', 'HA008'),
+('HA003', 'HA013', 'HA008'),
+('HA010', 'HA004', 'HA008'),
+('HA010', 'HA005', 'HA008'),
+('HA010', 'HA014', 'HA008'),
+('HA010', 'HA011', 'HA008'),
+('HA010', 'HA012', 'HA008'),
+('HA010', 'HA013', 'HA008'),
+('HA004', 'HA005', 'HA008'),
+('HA004', 'HA014', 'HA008'),
+('HA004', 'HA011', 'HA008'),
+('HA004', 'HA012', 'HA008'),
+('HA004', 'HA013', 'HA008'),
+('HA005', 'HA014', 'HA008'),
+('HA005', 'HA011', 'HA008'),
+('HA005', 'HA012', 'HA008'),
+('HA005', 'HA013', 'HA008'),
+('HA014', 'HA011', 'HA008'),
+('HA014', 'HA012', 'HA008'),
+('HA014', 'HA013', 'HA008'),
+('HA011', 'HA012', 'HA008'),
+('HA011', 'HA013', 'HA008'),
+('HA012', 'HA013', 'HA008'),
+('HA001', 'HA002', 'HA009'),
+('HA001', 'HA006', 'HA009'),
+('HA001', 'HA003', 'HA009'),
+('HA001', 'HA010', 'HA009'),
+('HA001', 'HA004', 'HA009'),
+('HA001', 'HA005', 'HA009'),
+('HA001', 'HA014', 'HA009'),
+('HA001', 'HA011', 'HA009'),
+('HA001', 'HA012', 'HA009'),
+('HA001', 'HA013', 'HA009'),
+('HA002', 'HA003', 'HA009'),
+('HA002', 'HA010', 'HA009'),
+('HA002', 'HA004', 'HA009'),
+('HA002', 'HA005', 'HA009'),
+('HA002', 'HA014', 'HA009'),
+('HA002', 'HA011', 'HA009'),
+('HA002', 'HA012', 'HA009'),
+('HA002', 'HA013', 'HA009'),
+('HA006', 'HA003', 'HA009'),
+('HA006', 'HA010', 'HA009'),
+('HA006', 'HA004', 'HA009'),
+('HA006', 'HA005', 'HA009'),
+('HA006', 'HA014', 'HA009'),
+('HA006', 'HA011', 'HA009'),
+('HA006', 'HA012', 'HA009'),
+('HA006', 'HA013', 'HA009'),
+('HA003', 'HA010', 'HA009'),
+('HA003', 'HA004', 'HA009'),
+('HA003', 'HA005', 'HA009'),
+('HA003', 'HA014', 'HA009'),
+('HA003', 'HA011', 'HA009'),
+('HA003', 'HA012', 'HA009'),
+('HA003', 'HA013', 'HA009'),
+('HA010', 'HA004', 'HA009'),
+('HA010', 'HA005', 'HA009'),
+('HA010', 'HA014', 'HA009'),
+('HA010', 'HA011', 'HA009'),
+('HA010', 'HA012', 'HA009'),
+('HA010', 'HA013', 'HA009'),
+('HA004', 'HA005', 'HA009'),
+('HA004', 'HA014', 'HA009'),
+('HA004', 'HA011', 'HA009'),
+('HA004', 'HA012', 'HA009'),
+('HA004', 'HA013', 'HA009'),
+('HA005', 'HA014', 'HA009'),
+('HA005', 'HA011', 'HA009'),
+('HA005', 'HA012', 'HA009'),
+('HA005', 'HA013', 'HA009'),
+('HA014', 'HA011', 'HA009'),
+('HA014', 'HA012', 'HA009'),
+('HA014', 'HA013', 'HA009'),
+('HA011', 'HA012', 'HA009'),
+('HA011', 'HA013', 'HA009'),
+('HA012', 'HA013', 'HA009');
 
 -- BEGIN;
 INSERT INTO `medicines` VALUES

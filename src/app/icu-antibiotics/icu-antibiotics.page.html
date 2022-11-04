@@ -17,6 +17,7 @@
           <ion-col size="6" (click)="goToActivity($event, item)" *ngFor="let item of activities"  class="{{item.classe}}">
             <div class="col_div">
               <h1>{{item.name}}</h1>
+              <p>{{item.comment}}</p>
             </div>
           </ion-col>
         </ion-row>
