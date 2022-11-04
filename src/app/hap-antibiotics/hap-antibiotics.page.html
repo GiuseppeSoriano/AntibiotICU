@@ -10,7 +10,7 @@
     </div>
 
     <div class="content_div1">      
-      <ion-label class="select_lbl">Empirical theraphy</ion-label>
+      <ion-label class="select_lbl">HAP Empirical theraphy</ion-label>
       <input type="text" class="input-filter" [(ngModel)]="filteredString" placeholder="Search">
     </div>
 
@@ -22,7 +22,7 @@
             <div class="col_div">
               <h3>{{item.AntibioticName1}}</h3> 
               <p>{{item.AntibioticDosage1}}</p>
-              <div *ngIf="Risk_B > 0 || Risk_C > 0">
+              <div *ngIf="Risk_B > 0 || Risk_C > 0 || Risk_A > 0">
                 <h1>+</h1> 
                 <h3>{{item.AntibioticName2}}</h3>
                 <p>{{item.AntibioticDosage2}}</p>
