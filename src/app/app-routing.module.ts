@@ -67,6 +67,14 @@ const routes: Routes = [
     path: 'bibliography',
     loadChildren: () => import('./bibliography/bibliography.module').then( m => m.BibliographyPageModule)
   },
+  {
+    path: 'effectiveness',
+    loadChildren: () => import('./effectiveness/effectiveness.module').then( m => m.EffectivenessPageModule)
+  },
+  {
+    path: 'bacterials-ordered',
+    loadChildren: () => import('./bacterials-ordered/bacterials-ordered.module').then( m => m.BacterialsOrderedPageModule)
+  },
   
 ];
 

@@ -14,11 +14,12 @@ import { FilterPipe } from './Pipes/filter.pipe';
 import { SplashScreen } from '@awesome-cordova-plugins/splash-screen/ngx';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { HapFilterPipe } from './Pipes/hap-filter.pipe'
+import { DatabaseService } from './database.service';
 
 @NgModule({
   declarations: [AppComponent, FilterPipe, HapFilterPipe],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, PdfViewerModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },SQLite, SQLitePorter, SplashScreen],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },SQLite, SQLitePorter, SplashScreen, DatabaseService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

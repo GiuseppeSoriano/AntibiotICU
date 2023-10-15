@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
 import { Router } from '@angular/router';
 
 
@@ -9,7 +8,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./dosage.page.scss'],
 })
 export class DosagePage implements OnInit {
-  Database: SQLiteObject
   Antibacterial = {
     Codice: '',
     Name: '',
@@ -22,7 +20,7 @@ export class DosagePage implements OnInit {
   };
   Page = 0;
   
-  constructor(private sqlite: SQLite, private router:Router) { 
+  constructor(private router:Router) { 
     
     const navigation = this.router.getCurrentNavigation();
     const state = navigation.extras.state as {
@@ -45,9 +43,6 @@ export class DosagePage implements OnInit {
     this.Antibacterial.P_Oral = state.P_Oral;
     this.Antibacterial.P_Parenteral = state.P_Parenteral;
     this.Antibacterial.Renal = state.Renal;
-    this.sqlite.create({name: 'myapp.db', location: 'default'}).then((db: SQLiteObject) => {
-      this.Database = db;
-    })
   }
 
   ngOnInit() {

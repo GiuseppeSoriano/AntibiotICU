@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
 import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
@@ -8,7 +7,6 @@ import { Router, NavigationExtras } from '@angular/router';
   styleUrls: ['./sepsi-riskfactor.page.scss'],
 })
 export class SepsiRiskfactorPage implements OnInit {
-  Database: SQLiteObject
   Focus ={
       Codice: '',
       Name: ''
@@ -47,7 +45,7 @@ export class SepsiRiskfactorPage implements OnInit {
     }
   ];
   RiskFactors = [];
-  constructor(private sqlite: SQLite, private router:Router) { 
+  constructor(private router:Router) { 
     const navigation = this.router.getCurrentNavigation();
     const state = navigation.extras.state as {
       Codice: string,
@@ -55,9 +53,6 @@ export class SepsiRiskfactorPage implements OnInit {
     };
     this.Focus.Codice = state.Codice;
     this.Focus.Name = state.Name;
-    this.sqlite.create({name: 'myapp.db', location: 'default'}).then((db: SQLiteObject) => {
-      this.Database = db;
-    })
   }
 
   ngOnInit() {

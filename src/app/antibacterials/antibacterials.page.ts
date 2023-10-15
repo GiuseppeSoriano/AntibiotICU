@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
 import { Router, NavigationExtras } from '@angular/router';
+import { DatabaseService } from '../database.service';
 
 @Component({
   selector: 'app-antibacterials',
@@ -8,24 +8,15 @@ import { Router, NavigationExtras } from '@angular/router';
   styleUrls: ['./antibacterials.page.scss'],
 })
 export class AntibacterialsPage implements OnInit {
-  Database: SQLiteObject
   Antibacterials = [];
   open_var = [];
   filteredString: string = '';
-  constructor(private sqlite: SQLite, private router:Router) { 
-    this.sqlite.create({name: 'myapp.db', location: 'default'}).then((db: SQLiteObject) => {
-      this.Database = db;
-      this.fill_antibacterials();
-    })
+  constructor(private Servizio:DatabaseService, private router:Router) { 
   }
 
-  ngOnInit() {
-  }
-
-
-  fill_antibacterials(){
+  ngOnInit(){
     let sql = "SELECT M.Codice, M.Name, M.Cod_button, M.A_Oral, M.A_Parenteral, M.A_Serious, M.P_Oral, M.P_Parenteral, M.Renal FROM medicines M";
-    this.Database.executeSql(sql, []).then((result) => {
+    this.Servizio.database.executeSql(sql, []).then((result) => {
       for (let i = 0; i < result.rows.length; i++) {
         let item = result.rows.item(i);
         this.open_var[result.rows.item(i).Cod_button] = false;

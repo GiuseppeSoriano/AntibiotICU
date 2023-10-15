@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
 import { Router, NavigationExtras } from '@angular/router';
+import { DatabaseService } from '../database.service';
 
 @Component({
   selector: 'app-enterobacterales',
@@ -8,24 +8,16 @@ import { Router, NavigationExtras } from '@angular/router';
   styleUrls: ['./enterobacterales.page.scss'],
 })
 export class EnterobacteralesPage implements OnInit {
-
-  Database: SQLiteObject
   Enterobacterales = [];
   open_var = [];
-  constructor(private sqlite: SQLite, private router:Router) { 
-    this.sqlite.create({name: 'myapp.db', location: 'default'}).then((db: SQLiteObject) => {
-      this.Database = db;
-      this.fill_enterobacterales();
-    })
+  constructor(private Servizio:DatabaseService, private router:Router) { 
+
   }
 
-  ngOnInit() {
-  }
-
-  fill_enterobacterales(){
+  ngOnInit(){
     let sql = "SELECT * FROM ivac_enterobacterales ORDER BY Name";
 
-    this.Database.executeSql(sql, [])
+    this.Servizio.database.executeSql(sql, [])
       .then((result) => {
         for (let i = 0; i < result.rows.length; i++) {
           let item = result.rows.item(i);

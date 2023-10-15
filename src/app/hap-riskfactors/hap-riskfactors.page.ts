@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
 import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
@@ -8,7 +7,6 @@ import { Router, NavigationExtras } from '@angular/router';
   styleUrls: ['./hap-riskfactors.page.scss'],
 })
 export class HapRiskfactorsPage implements OnInit {
-  Database: SQLiteObject
   GeneralRiskFactor = [0,0,0];
   PossibleRiskFactors = [
     {
@@ -55,11 +53,8 @@ export class HapRiskfactorsPage implements OnInit {
     }
   ];
   RiskFactors = [];
-  constructor(private sqlite: SQLite, private router:Router) { 
+  constructor(private router:Router) { 
     const navigation = this.router.getCurrentNavigation();
-    this.sqlite.create({name: 'myapp.db', location: 'default'}).then((db: SQLiteObject) => {
-      this.Database = db;
-    })
   }
 
   ngOnInit() {

@@ -3,18 +3,18 @@ import { Router, NavigationExtras } from '@angular/router';
 import { DatabaseService } from '../database.service';
 
 @Component({
-  selector: 'app-antibacterials-ordered',
-  templateUrl: './antibacterials-ordered.page.html',
-  styleUrls: ['./antibacterials-ordered.page.scss'],
+  selector: 'app-bacterials-ordered',
+  templateUrl: './bacterials-ordered.page.html',
+  styleUrls: ['./bacterials-ordered.page.scss'],
 })
-export class AntibacterialsOrderedPage implements OnInit {
-  Antibacterials5 = [];
-  Antibacterials4 = [];
-  Antibacterials3 = [];
-  Antibacterials2 = [];
-  Antibacterials1 = [];
-  Antibacterials0 = [];
-  Bacterial = {
+export class BacterialsOrderedPage implements OnInit {
+  Bacterials5 = [];
+  Bacterials4 = [];
+  Bacterials3 = [];
+  Bacterials2 = [];
+  Bacterials1 = [];
+  Bacterials0 = [];
+  Antibacterial = {
     Codice: '',
     Name: ''
   };
@@ -60,14 +60,16 @@ export class AntibacterialsOrderedPage implements OnInit {
   Page = 0;
   filteredString: string = '';
   openPopup = false;
+
   constructor(private Servizio:DatabaseService, private router:Router) { 
     const navigation = this.router.getCurrentNavigation();
     const state = navigation.extras.state as {
       Codice: string,
       Name: string
     };
-    this.Bacterial.Codice = state.Codice;
-    this.Bacterial.Name = state.Name;
+    this.Antibacterial.Codice = state.Codice;
+    this.Antibacterial.Name = state.Name;
+
   }
 
   async showInfo(isOpen: boolean){
@@ -75,69 +77,55 @@ export class AntibacterialsOrderedPage implements OnInit {
   }
 
   ngOnInit(){
-    let sql = "SELECT M.Codice, M.Name, M.A_Oral, M.A_Parenteral, M.A_Serious, M.P_Oral, M.P_Parenteral, M.Renal FROM effectiveness E inner join medicines M on E.Antibacterial = M.Codice WHERE E.Bacterial = '" + this.Bacterial.Codice + "' AND E.Effective=5 ORDER BY E.Effective DESC";
+    console.log(this.Antibacterial.Codice);
+    console.log(this.Antibacterial.Name);
+    let sql = "SELECT B.Codice, B.Name FROM effectiveness E inner join bacterials B on E.Bacterial = B.Codice WHERE E.Antibacterial = '" + this.Antibacterial.Codice + "' AND E.Effective=5 ORDER BY E.Effective DESC";
     this.Servizio.database.executeSql(sql, []).then((result) => {
       for (let i = 0; i < result.rows.length; i++) {
         let item = result.rows.item(i);
-        this.Antibacterials5.push(item);
+        this.Bacterials5.push(item);
       }
     }).catch(e => console.log(e));
-    sql = "SELECT M.Codice, M.Name, M.A_Oral, M.A_Parenteral, M.A_Serious, M.P_Oral, M.P_Parenteral, M.Renal FROM effectiveness E inner join medicines M on E.Antibacterial = M.Codice WHERE E.Bacterial = '" + this.Bacterial.Codice + "' AND E.Effective=4 ORDER BY E.Effective DESC";
+    console.log(this.Bacterials5);
+    sql = "SELECT B.Codice, B.Name FROM effectiveness E inner join bacterials B on E.Bacterial = B.Codice WHERE E.Antibacterial = '" + this.Antibacterial.Codice + "' AND E.Effective=4 ORDER BY E.Effective DESC";
     this.Servizio.database.executeSql(sql, []).then((result) => {
       for (let i = 0; i < result.rows.length; i++) {
         let item = result.rows.item(i);
-        this.Antibacterials4.push(item);
+        this.Bacterials4.push(item);
       }
     }).catch(e => console.log(e));
-    sql = "SELECT M.Codice, M.Name, M.A_Oral, M.A_Parenteral, M.A_Serious, M.P_Oral, M.P_Parenteral, M.Renal FROM effectiveness E inner join medicines M on E.Antibacterial = M.Codice WHERE E.Bacterial = '" + this.Bacterial.Codice + "' AND E.Effective=3 ORDER BY E.Effective DESC";
+    sql = "SELECT B.Codice, B.Name FROM effectiveness E inner join bacterials B on E.Bacterial = B.Codice WHERE E.Antibacterial = '" + this.Antibacterial.Codice + "' AND E.Effective=3 ORDER BY E.Effective DESC";
     this.Servizio.database.executeSql(sql, []).then((result) => {
       for (let i = 0; i < result.rows.length; i++) {
         let item = result.rows.item(i);
-        this.Antibacterials3.push(item);
+        this.Bacterials3.push(item);
       }
     }).catch(e => console.log(e));
-    sql = "SELECT M.Codice, M.Name, M.A_Oral, M.A_Parenteral, M.A_Serious, M.P_Oral, M.P_Parenteral, M.Renal FROM effectiveness E inner join medicines M on E.Antibacterial = M.Codice WHERE E.Bacterial = '" + this.Bacterial.Codice + "' AND E.Effective=2 ORDER BY E.Effective DESC";
+    sql = "SELECT B.Codice, B.Name FROM effectiveness E inner join bacterials B on E.Bacterial = B.Codice WHERE E.Antibacterial = '" + this.Antibacterial.Codice + "' AND E.Effective=2 ORDER BY E.Effective DESC";
     this.Servizio.database.executeSql(sql, []).then((result) => {
       for (let i = 0; i < result.rows.length; i++) {
         let item = result.rows.item(i);
-        this.Antibacterials2.push(item);
+        this.Bacterials2.push(item);
       }
     }).catch(e => console.log(e));
-    sql = "SELECT M.Codice, M.Name, M.A_Oral, M.A_Parenteral, M.A_Serious, M.P_Oral, M.P_Parenteral, M.Renal FROM effectiveness E inner join medicines M on E.Antibacterial = M.Codice WHERE E.Bacterial = '" + this.Bacterial.Codice + "' AND E.Effective=1 ORDER BY E.Effective DESC";
+    sql = "SELECT B.Codice, B.Name FROM effectiveness E inner join bacterials B on E.Bacterial = B.Codice WHERE E.Antibacterial = '" + this.Antibacterial.Codice + "' AND E.Effective=1 ORDER BY E.Effective DESC";
     this.Servizio.database.executeSql(sql, []).then((result) => {
       for (let i = 0; i < result.rows.length; i++) {
         let item = result.rows.item(i);
-        this.Antibacterials1.push(item);
+        this.Bacterials1.push(item);
       }
     }).catch(e => console.log(e));
-    sql = "SELECT M.Codice, M.Name, M.A_Oral, M.A_Parenteral, M.A_Serious, M.P_Oral, M.P_Parenteral, M.Renal FROM effectiveness E inner join medicines M on E.Antibacterial = M.Codice WHERE E.Bacterial = '" + this.Bacterial.Codice + "' AND E.Effective=0 ORDER BY E.Effective DESC";
+    sql = "SELECT B.Codice, B.Name FROM effectiveness E inner join bacterials B on E.Bacterial = B.Codice WHERE E.Antibacterial = '" + this.Antibacterial.Codice + "' AND E.Effective=0 ORDER BY E.Effective DESC";
     this.Servizio.database.executeSql(sql, []).then((result) => {
       for (let i = 0; i < result.rows.length; i++) {
         let item = result.rows.item(i);
-        this.Antibacterials0.push(item);
+        this.Bacterials0.push(item);
       }
     }).catch(e => console.log(e));
-  }
-
-  goDosage(e, item){
-    const navigationExtras: NavigationExtras = {
-      state: {
-        Page: 1,
-        Codice: item.Codice,
-        Name: item.Name,
-        A_Oral: item.A_Oral,
-        A_Parenteral: item.A_Parenteral,
-        A_Serious: item.A_Serious,
-        P_Oral: item.P_Oral,
-        P_Parenteral: item.P_Parenteral,
-        Renal: item.Renal
-      }
-    };
-    this.router.navigate(['/dosage'], navigationExtras);
   }
   
   goBack(){
-    this.router.navigate(['/bacterials']);
+    this.router.navigate(['/effectiveness']);
   }
 
   showPopupDetails(id: number){

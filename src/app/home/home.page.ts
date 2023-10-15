@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
-import { SQLitePorter } from '@awesome-cordova-plugins/sqlite-porter/ngx';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { DatabaseService } from '../database.service';
 
 @Component({
   selector: 'app-home',
@@ -11,14 +9,15 @@ import { HttpClient } from '@angular/common/http';
   viewProviders: []
 })
 export class HomePage {
-  objecDB: SQLiteObject
   activities;
   bacterials = [];
   selected_bacterial: null;
   openPopup = false;
   showBibliography = false;
-  constructor(private sqlite: SQLite, private router:Router, private httpClient: HttpClient, private sqlitePorter: SQLitePorter) {
-    this.init_db();
+  openDisclaimer: boolean = true;
+
+  constructor(private Servizio: DatabaseService, private router:Router) {
+
   }
 
   async soonAvailable(isOpen: boolean){
@@ -45,7 +44,7 @@ export class HomePage {
       {
         code: 3,
         img: 'assets/imgs/icon4.png', 
-        name: 'PATHOLOGIES'
+        name: 'EFFICACY'
       }
     ]
   }
@@ -65,7 +64,7 @@ export class HomePage {
         break;
       }
       case 3: {
-        this.soonAvailable(true);
+        this.router.navigate(['/effectiveness']);
         break;
       }
       default: break;
@@ -76,21 +75,10 @@ export class HomePage {
     this.router.navigate(['/bibliography']);
   }
 
-  private init_db() {
-    this.httpClient.get('assets/db/myapp.sql', {responseType: 'text'})
-        .subscribe(data => { 
-          this.sqlite.create({name: 'myapp.db', location: 'default'}).then((db: SQLiteObject) => {
-            this.objecDB = db;
-          this.sqlitePorter.importSqlToDb(db, data).then(f => this.populateBacterials());
-          }).catch(e => {
-            console.log(e)});
-        });
-  }
-
   populateBacterials(){
     let sql = "SELECT * FROM bacterials ORDER BY Name";
 
-    this.objecDB.executeSql(sql, [])
+    this.Servizio.database.executeSql(sql, [])
       .then((result) => {
         for (let i = 0; i < result.rows.length; i++) {
           let item = result.rows.item(i);

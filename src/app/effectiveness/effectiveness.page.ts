@@ -3,41 +3,43 @@ import { Router, NavigationExtras } from '@angular/router';
 import { DatabaseService } from '../database.service';
 
 @Component({
-  selector: 'app-bacterials',
-  templateUrl: './bacterials.page.html',
-  styleUrls: ['./bacterials.page.scss'],
+  selector: 'app-effectiveness',
+  templateUrl: './effectiveness.page.html',
+  styleUrls: ['./effectiveness.page.scss'],
 })
-export class BacterialsPage implements OnInit {
-  Bacterials = [];
+export class EffectivenessPage implements OnInit {
+  Antibacterials = [];
   open_var = [];
   constructor(private Servizio:DatabaseService, private router:Router) { 
+
   }
 
   ngOnInit(){
-    let sql = "SELECT * FROM bacterials ORDER BY Name";
+    let sql = "SELECT * FROM medicines ORDER BY Name";
 
     this.Servizio.database.executeSql(sql, [])
       .then((result) => {
         for (let i = 0; i < result.rows.length; i++) {
           let item = result.rows.item(i);
-          this.Bacterials.push(item);
+          this.Antibacterials.push(item);
         }
       })
       .catch(e => console.log(e));
   }
 
-  viewAntibacterials(e, item){
+  viewBacterials(e, item){
     const navigationExtras: NavigationExtras = {
       state: {
         Codice: item.Codice,
         Name: item.Name
       }
     };
-    this.router.navigate(['/antibacterials-ordered'], navigationExtras);
+    this.router.navigate(['/bacterials-ordered'], navigationExtras);
   }
     
   goHome(){
     this.router.navigate(['/home']);
   }
+
 
 }

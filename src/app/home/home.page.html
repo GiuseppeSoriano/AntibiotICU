@@ -23,8 +23,6 @@
       </ion-grid>
 
     </div>  
-
-    <div class="footer"><span (click)="go_Bibliography()">ABOUT</span></div>
   </div>
 
   <ion-modal [isOpen]="openPopup" (didDismiss)="openPopup = false">
@@ -33,6 +31,30 @@
         <div class="popup-div">
           <img src="assets/imgs/close.png" slot="end" (click)="openPopup = false" class="close-btn">
           <img src="../../assets/imgs/ComingSoon.jpg">
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal #modal2 [isOpen]="openDisclaimer" (didDismiss)="openDisclaimer = false">
+    <ng-template>
+      <ion-content>
+        <ion-toolbar>
+          <ion-title>DISCLAIMER</ion-title>
+          <ion-buttons slot="end">
+            <ion-button color="light" (click)="modal2.dismiss()">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+        <div class="text_disclaimer">
+          The protocols suggested in this app have been developed according to the following documents:
+          <ul>
+            <li><a href="https://www.studocu.com/en-us/document/stanford-university/the-threat-of-emerging-antibiotic-resistance-and-what-we-can-do-about-it/sanford-antimicrobial-spectrum-chart/32663421">Sanford Antimicrobial Spectrum Chart</a></li>
+            <li><a href="https://www.msdmanuals.com/professional/multimedia/table/usual-dosages-of-commonly-prescribed-antibioticsa">Usual Dosages of Commonly Prescribed Antibiotics</a></li>
+            <li><a href="https://www.idsociety.org/practice-guideline/hap_vap/">idsociety.org/practice-guideline</a></li>
+            <li><a href="https://www.tandfonline.com/doi/full/10.1080/14787210.2021.1976145">tandfonline.com</a></li>
+          </ul>
+          The information provided must always be checked before any clinical use.<br>
+          We decline all responsibility for incorrect use of the application or any (possible) errors present.
         </div>
       </ion-content>
     </ng-template>

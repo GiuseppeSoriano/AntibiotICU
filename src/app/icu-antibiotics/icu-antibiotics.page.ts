@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
 import { Router, } from '@angular/router';
 
 @Component({
@@ -8,14 +7,11 @@ import { Router, } from '@angular/router';
   styleUrls: ['./icu-antibiotics.page.scss'],
 })
 export class IcuAntibioticsPage implements OnInit {
-  Database: SQLiteObject;
   activities;
   openPopup = false;
   
-  constructor(private sqlite: SQLite, private router:Router) { 
-    this.sqlite.create({name: 'myapp.db', location: 'default'}).then((db: SQLiteObject) => {
-      this.Database = db;
-    })
+  constructor(private router:Router) { 
+
   }
 
   ngOnInit() {

@@ -4,6 +4,7 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@awesome-cordova-plugins/splash-screen/ngx';
 
 import { timer } from 'rxjs';
+import { DatabaseService } from './database.service';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +15,7 @@ export class AppComponent {
 
   showSplash = true;
 
-  constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-  ) {
+  constructor(private platform: Platform, private splashScreen: SplashScreen, private Servizio: DatabaseService) {
     this.initializeApp();
   }
 
@@ -27,8 +25,13 @@ export class AppComponent {
 
       timer(4000).subscribe(() => this.showSplash = false)
     });
-
+    
   }
 
+  ngOnInit(): void {
+    this.platform.ready().then(() => {
+      this.Servizio.initializeDatabase();
+    });
+  }
 
 }
